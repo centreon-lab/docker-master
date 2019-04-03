@@ -135,6 +135,8 @@ fi
 touch /var/log/centreon/login.log
 
 # Fix permissions:
+find /etc/centreon* -type d | xargs chmod -v 0775
+find /etc/centreon* -type f | xargs chmod -v 0664
 chown -v centreon:apache /var/log/centreon
 chmod -v 0775 /var/log/centreon
 chown -v centreon-engine:centreon-engine /var/log/centreon-engine
