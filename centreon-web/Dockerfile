@@ -176,7 +176,19 @@ RUN echo "Compiling and installing Centreon-Web..." \
   && mkdir -vp /var/opt/rh/rh-php71/lib/php/session \
   && chown apache:centreon /var/opt/rh/rh-php71/lib/php/session \
   && mkdir -vp /var/opt/rh/rh-php71/lib/php/wsdlcache \
-  && chown apache:centreon /var/opt/rh/rh-php71/lib/php/wsdlcache
+  && chown apache:centreon /var/opt/rh/rh-php71/lib/php/wsdlcache \
+  && usermod -G centreon centreon-engine \
+  && usermod -G centreon centreon-broker \
+  && usermod -G centreon apache \
+  && usermod -G centreon-broker centreon \
+  && usermod -G centreon-broker centreon-engine \
+  && usermod -G centreon-broker apache \
+  && usermod -G centreon-engine centreon \
+  && usermod -G centreon-engine centreon-broker \
+  && usermod -G centreon-engine apache \
+  && usermod -G apache centreon \
+  && usermod -G apache centreon-engine \
+  && usermod -G apache centreon-broker
 
 # Add postfix-wrapper
 # From: https://www.snip2code.com/Snippet/309436/postfix-wrapper-sh-for-supervisord-in-do
