@@ -18,6 +18,7 @@ RUN yum install -y \
     python-devel \
     git \
     unzip \
+    cronie \
   && wget http://yum.centreon.com/standard/19.04/el7/stable/noarch/RPMS/${CENTREON_REPO_VERSION} -O /tmp/${CENTREON_REPO_VERSION} \
   && yum install --nogpgcheck -y /tmp/${CENTREON_REPO_VERSION} \
   && yum install -y \
@@ -102,6 +103,7 @@ RUN echo "Compiling and installing Centreon-Web..." \
     rh-php71-php-snmp \
     rh-php71-ioncube-loader \
     perl-DBD-MySQL \
+    perl-Sys-Syslog \
     centreon-plugins-base \
     httpd \
     centreon-plugin-Operatingsystems-Linux-Local \
