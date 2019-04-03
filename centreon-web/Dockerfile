@@ -178,12 +178,6 @@ RUN echo "Compiling and installing Centreon-Web..." \
   && mkdir -vp /var/opt/rh/rh-php71/lib/php/wsdlcache \
   && chown apache:centreon /var/opt/rh/rh-php71/lib/php/wsdlcache
 
-# Remove after commit of PR 
-# https://github.com/centreon/centreon/pull/7347
-RUN yum install -y patch \
-  && cd /usr/share/centreon \
-  && curl -q https://gitlab.labexposed.com/snippets/1/raw | patch -p1
-
 # Add postfix-wrapper
 # From: https://www.snip2code.com/Snippet/309436/postfix-wrapper-sh-for-supervisord-in-do
 COPY files/postfix-wrapper.sh /usr/local/sbin/
