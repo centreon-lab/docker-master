@@ -23,4 +23,9 @@ services:
     command: mysqld --open-files-limit=32000
     environment:
       MYSQL_ROOT_PASSWORD: "change123"
+  centreon-engine-1:
+    build: ./centreon-engine
+    depends_on:
+      - centreon-web
+
 
