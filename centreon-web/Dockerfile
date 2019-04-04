@@ -186,6 +186,7 @@ RUN echo "Compiling and installing Centreon-Web..." \
 
 # Add Centreon-map repository and install
 RUN yum install -y http://yum.centreon.com/centreon-map/bfcfef6922ae08bd2b641324188d8a5f/19.04/el7/stable/noarch/RPMS/centreon-map-release-19.04-1.el7.centos.noarch.rpm \
+  && yum-config-manager -y -q --disable centreon-map-stable \
   && yum-config-manager -y -q --enable centreon-map-canary-noarch \
   && yum install -y centreon-map-server
 
