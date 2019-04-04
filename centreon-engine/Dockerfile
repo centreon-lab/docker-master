@@ -49,7 +49,8 @@ RUN echo "Compiling and installing Centreon-Engine..." \
    -DWITH_TESTING=0 \
   && make \
   && make install \
-  && mkdir -p /usr/share/centreon-engine
+  && mkdir -p /usr/share/centreon-engine \
+  && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 
 COPY files/supervisord/sshd.ini /etc/supervisor.d/sshd.ini
 COPY files/supervisord/centreon-engine.ini /etc/supervisor.d/centreon-engine.ini
