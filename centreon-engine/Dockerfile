@@ -55,6 +55,7 @@ COPY files/supervisord/sshd.ini /etc/supervisor.d/sshd.ini
 COPY files/supervisord/centreon-engine.ini /etc/supervisor.d/centreon-engine.ini
 COPY files/supervisord/postfix.ini /etc/supervisor.d/postfix.ini
 COPY files/start.sh /start.sh
+RUN chmod +x /start.sh
 
 # Add postfix-wrapper
 # From: https://www.snip2code.com/Snippet/309436/postfix-wrapper-sh-for-supervisord-in-do
