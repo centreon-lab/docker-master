@@ -21,6 +21,8 @@ RUN yum install -y \
     cronie \
   && wget http://yum.centreon.com/standard/19.04/el7/stable/noarch/RPMS/${CENTREON_REPO_VERSION} -O /tmp/${CENTREON_REPO_VERSION} \
   && yum install --nogpgcheck -y /tmp/${CENTREON_REPO_VERSION} \
+  && yum-config-manager -q --enable centreon-canary \
+  && yum-config-manager -q --enable centreon-canary-noarch \
   && yum install -y \
     centreon-clib-devel \
     gcc \
@@ -181,6 +183,11 @@ RUN echo "Compiling and installing Centreon-Web..." \
   && usermod -G centreon,centreon-engine,apache centreon-broker \
   && usermod -G centreon,centreon-engine,centreon-broker apache \
   && usermod -G centreon-broker,centreon-engine,apache centreon
+
+# Add Centreon-map repository and install
+RUN yum install http://yum.centreon.com/centreon-map/bfcfef6922ae08bd2b641324188d8a5f/19.04/el7/stable/noarch/RPMS/centreon-map-release-19.04-1.el7.centos.noarch.rpm \
+  && yum-config-manager -q --enable centreon-map-canary-noarch \
+  && yum install -y centreon-map-server
 
 # Add postfix-wrapper
 # From: https://www.snip2code.com/Snippet/309436/postfix-wrapper-sh-for-supervisord-in-do
