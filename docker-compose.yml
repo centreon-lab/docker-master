@@ -18,6 +18,7 @@ services:
       - "8080:80"
     volumes:
       - ./ssh/id_rsa:/var/spool/centreon/.ssh/id_rsa
+      - ./licenses:/etc/centreon/license.d
   centreon-db:
     image: mariadb:10.3
     command: mysqld --open-files-limit=32000
