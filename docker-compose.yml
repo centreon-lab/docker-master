@@ -27,5 +27,11 @@ services:
     build: ./centreon-engine
     depends_on:
       - centreon-web
-
-
+  centreon-engine-2:
+    build: ./centreon-engine
+    depends_on:
+      - centreon-web
+  centreon-engine-3:
+    build: ./centreon-engine
+    depends_on:
+      - centreon-web
