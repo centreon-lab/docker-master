@@ -3,7 +3,7 @@ FROM centos:7
 LABEL maintainer="Luiz Costa <me@luizgustavo.pro.br>"
 
 ENV CENTREON_REPO_VERSION centreon-release-19.04-1.el7.centos.noarch.rpm
-ENV BRANCH_CENTREON_WEB master
+ENV BRANCH_CENTREON_WEB strict_issues
 ENV BRANCH_CENTREON_BROKER master
 ENV BRANCH_CENTREON_ENGINE master
 ENV TIMEZONE "Europe/Paris"
